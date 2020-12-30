@@ -19,13 +19,12 @@ This repo provides tools and guidelines on compressing ~360GB of raw JSON logs i
 If you want to run this yourself, you will almost certainly need to run some pre-processing of the raw data.
 
 1. A couple of corrupted logs need to be fixed, otherwise it can mess with your processing (schema-on-read engines such as Spark/Presto is especially sensitive to this). See `Known Corrupted Logs` section for details.
-    - 2020-10-29-21-45#1250.json: rogue field named
 2. Logs will present numbers in integer format (e.g. 5) in some logs, but in double format (e.g. 5.0) in others. This will create inconsistencies in your parquet schemas which can cause many systems to chuck a fit. 
 
 ## Instructions
 
 Requirements:
-- Linux or Mac, Windows will need to run WSL
+- Linux or Mac, Windows will need to run within WSL
 - Python 3.8+
 
 ### Clean-up corrupted logs
