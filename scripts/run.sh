@@ -7,14 +7,6 @@ set -euo
 INPUT_FOLDER=/path/to/raw/sts/logs
 OUTPUT_FOLDER=/path/where/outputs/should/go
 
-source env/bin/activate
 rm -rf $OUTPUT_FOLDER/*
 
-python3 process_runfiles.py $INPUT_FOLDER/sub_folder_0 $OUTPUT_FOLDER \ ./log_run.txt &
-python3 process_runfiles.py $INPUT_FOLDER/sub_folder_1 $OUTPUT_FOLDER \ ./log_run.txt &
-python3 process_runfiles.py $INPUT_FOLDER/sub_folder_2 $OUTPUT_FOLDER \ ./log_run.txt &
-python3 process_runfiles.py $INPUT_FOLDER/sub_folder_3 $OUTPUT_FOLDER \ ./log_run.txt &
-python3 process_runfiles.py $INPUT_FOLDER/sub_folder_4 $OUTPUT_FOLDER \ ./log_run.txt &
-python3 process_runfiles.py $INPUT_FOLDER/sub_folder_5 $OUTPUT_FOLDER \ ./log_run.txt &
-python3 process_runfiles.py $INPUT_FOLDER/sub_folder_6 $OUTPUT_FOLDER \ ./log_run.txt &
-python3 process_runfiles.py $INPUT_FOLDER/sub_folder_7 $OUTPUT_FOLDER \ ./log_run.txt &
+python3 process_runfiles.py $INPUT_FOLDER $OUTPUT_FOLDER \ ./log_run.txt

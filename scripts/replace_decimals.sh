@@ -7,11 +7,4 @@ set -euo
 PATTERN='s/\.0//g'
 RAW_FILE_ROOT_FOLDER=/path/to/raw/sts/logs
 
-find $RAW_FILE_ROOT_FOLDER/0/. -type f -exec sed -i -e $PATTERN {} \; &
-find $RAW_FILE_ROOT_FOLDER/1/. -type f -exec sed -i -e $PATTERN {} \; &
-find $RAW_FILE_ROOT_FOLDER/2/. -type f -exec sed -i -e $PATTERN {} \; &
-find $RAW_FILE_ROOT_FOLDER/3/. -type f -exec sed -i -e $PATTERN {} \; &
-find $RAW_FILE_ROOT_FOLDER/4/. -type f -exec sed -i -e $PATTERN {} \; &
-find $RAW_FILE_ROOT_FOLDER/5/. -type f -exec sed -i -e $PATTERN {} \; &
-find $RAW_FILE_ROOT_FOLDER/6/. -type f -exec sed -i -e $PATTERN {} \; &
-find $RAW_FILE_ROOT_FOLDER/7/. -type f -exec sed -i -e $PATTERN {} \; &
+find $RAW_FILE_ROOT_FOLDER -type f -exec sed -i -e $PATTERN {} \;

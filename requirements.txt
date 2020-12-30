@@ -1,0 +1,3 @@
+fire==0.3.0
+pandas==1.2.0
+pyarrow==2.0.0
