@@ -8,11 +8,11 @@ Simply reading and parsing the data alone on a single computer is a challenge, l
 
 ## So what does this repo do?
 
-This repo provides tools and guidelines on compressing ~360GB of raw JSON logs into ~28GB parquet files.
+This repo provides tools and guidelines on compressing ~360GB of raw JSON logs into ~28GB parquet files for speedier processing and integration with big data tools.
 
-1. :shell: Provide a couple of bash scripts that pre-process the data.
-2. :snake: Python scripts that parses JSON files into Parquet format with Snappy compression.
-3. :page_facing_up: Some documentation/guidelines around data quality.
+:shell: Shell scripts that pre-process the data.  
+:snake: Python scripts that parses JSON files into Parquet format with Snappy compression.  
+:page_facing_up: Some documentation/guidelines around data quality.
 
 ## Pre-process?
 
