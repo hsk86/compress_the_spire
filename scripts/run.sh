@@ -9,4 +9,4 @@ OUTPUT_FOLDER=/path/where/outputs/should/go
 
 rm -rf $OUTPUT_FOLDER/*
 
-python3 process_runfiles.py $INPUT_FOLDER $OUTPUT_FOLDER \ ./log_run.txt
+python3 ./src/process_runfiles.py $INPUT_FOLDER $OUTPUT_FOLDER \ ./log_run.txt
