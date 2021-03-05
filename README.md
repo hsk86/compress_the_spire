@@ -18,8 +18,8 @@ This repo provides tools and guidelines on compressing ~360GB of raw JSON logs i
 
 If you want to run this yourself, you will almost certainly need to run some pre-processing of the raw data.
 
-1. A couple of corrupted logs need to be fixed, otherwise it can mess with your processing (schema-on-read engines such as Spark/Presto is especially sensitive to this). See `Known Corrupted Logs` section for details.
-2. Logs will present numbers in integer format (e.g. 5) in some logs, but in double format (e.g. 5.0) in others. This will create inconsistencies in your parquet schemas which can cause many systems to chuck a fit. 
+1. A couple of corrupted logs need to be fixed, otherwise it can mess with your processing (schema-on-read engines such as Spark/Presto is especially sensitive to this). See `Clean-up Corrupted Logs` section for details.
+2. Logs will present numbers in integer format (e.g. 5) in some logs, but in double format (e.g. 5.0) in others. This will create inconsistencies in your parquet schemas which may also cause problems. 
 
 ## Instructions
 
@@ -83,15 +83,16 @@ Parquet used to be a purely Hadoop/HDFS storage format, but it's now widely used
 - :snake: Use either [pyarrow](https://arrow.apache.org/docs/python/) and/or [pandas](https://pandas.pydata.org/) packages to read parquet files into pandas DataFrames.
 - :cloud: Load into Amazon S3, thrn run SQL queries directly on the files via [Amazon Athena](https://aws.amazon.com/athena/) :white_check_mark: :moneybag:
     - Billed at $5/GB data *scanned*. Keep an eye on your AWS bill.
-    - This is my personal recommendation without a beast rig at home, as long as you're not hammering it with dumb queries 24/7 your bill won't amount to much. 
+    - This is my personal recommendation without a beast rig at home, as long as you're not hammering it with dumb queries 24/7 your bill shouldn't amount to much. 
 - :cloud: Load into [Google BigQuery](https://cloud.google.com/bigquery) :moneybag:
     - Billed at $5/GB data *scanned*. Keep an eye on your GCP bill.
     - *Should* be as good, if not better than Athena, but I don't know enough about BigQuery to make a call on this.
 - :cloud: Load into [Snowflake](https://www.snowflake.com/) :moneybag::moneybag::moneybag:
     - Highly performant but is extremely **expensive**. 
         - You have been warned. Careless home use will probably **make you bankrupt**. Try on a demo account without submitting your CC info to be safe.
-- :cloud: Load into [Redshift](https://aws.amazon.com/redshift/)
-    - Not recommended, Redshift does not currently support complex data types (e.g. nested arrays/structs). You could however keep data in Amazon S3 and leverage Amazon Redshift Spectrum...but at that point why not just use Athena?
+- :cloud: Load into [Redshift](https://aws.amazon.com/redshift/) :moneybag::moneybag:
+    - Not recommended, Redshift does not currently support complex data types (e.g. nested arrays/structs)
+    - You could however keep data in Amazon S3 and leverage Amazon Redshift Spectrum...but at that point why not just use Athena?
 - :computer: Try running a [Clickhouse](https://clickhouse.tech/) data warehouse cluster on your PC or your favourite VM :white_check_mark:
     - Your PC needs to be sufficiently beefy (think >64GB ram) to handle complex queries on this.
 - :computer: Use it on your own Hadoop/Spark cluster, if you're into running your own clusters.

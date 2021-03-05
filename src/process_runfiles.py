@@ -54,7 +54,7 @@ def main(input_path, output_path, logfile):
         df.to_parquet(
             f_chunk[0].replace(input_path, output_path_ym).replace('.json', '_runs.snappy.parquet')
             ,compression='snappy'
-            ,engine='pyarrow'
+            ,engine='fastparquet'
             ,index=False
         )
         logging.info("Great success!: {}".format(f_chunk[0]))
