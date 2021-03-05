@@ -4,7 +4,9 @@
 
 The largest trove of Slay the Spire (STS) runs data in existence (~77m Slay the Spire runs, ~360GB uncompressed) was recently made public.
 
-Simply reading and parsing the data alone on a single computer is a challenge, let alone calculate complex metrics or develop machine learning models on top of this data. Cloud is a good solution for this, but at this volume of data, cost is a serious concern, especially for individual contributors to bear.
+Simply reading and parsing the data alone on a single computer is a challenge, let alone calculate complex metrics or develop machine learning models on top of this data. 
+
+Going cloud is a good solution for this, but at this volume of data, cost is a serious concern, especially for hobbyists.
 
 ## So what does this repo do?
 
